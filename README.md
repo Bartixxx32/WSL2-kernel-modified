@@ -1,1 +1,1 @@
-# wsl2kernel-unlocked
+# wsl2kernel
