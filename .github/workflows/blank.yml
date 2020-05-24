@@ -23,7 +23,9 @@ jobs:
     - uses: actions/checkout@v2
 
     # Runs a set of commands using the runners shell
-    - name: Prepare
+    - name: Clone
+      run: git clone https://github.com/microsoft/WSL2-Linux-Kernel.git -b linux-msft-wsl-4.19.y
+    - name: Requirments
       run: |
         sudo apt install build-essential flex bison libssl-dev libelf-dev qt5-default pkg-config libncurses-dev -y
         git clone https://github.com/microsoft/WSL2-Linux-Kernel.git -b linux-msft-wsl-4.19.y
