@@ -29,7 +29,6 @@ jobs:
           curl https://raw.githubusercontent.com/Bartixxx32/wsl2kernel-unlocked/master/kernel-config >> .config
           make -j2
           cp arch/x86/boot/bzImage ./kernel_builded
-          zip -r kernel.zip ./kernel_builded
           ls
           pwd
         env:
@@ -51,6 +50,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-          asset_path: /home/runner/work/wsl2kernel-unlocked/wsl2kernel-unlocked/WSL2-Linux-Kernel/kernel.zip
-          asset_name: kernel.zip
+          asset_path: /home/runner/work/wsl2kernel-unlocked/wsl2kernel-unlocked/WSL2-Linux-Kernel/kernel_builded
+          asset_name: kernel_builded
           asset_content_type: application/zip
