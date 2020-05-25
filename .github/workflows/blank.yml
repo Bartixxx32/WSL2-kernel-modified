@@ -28,8 +28,8 @@ jobs:
           cd WSL2-Linux-Kernel
           curl https://raw.githubusercontent.com/Bartixxx32/wsl2kernel-unlocked/master/kernel-config >> .config
           make -j2
-          cp arch/x86/boot/bzImage ./kernel
-          zip -r kernel.zip kernel
+          cp arch/x86/boot/bzImage ./kernel_builded
+          zip -r kernel.zip ./kernel_builded
           ls
           pwd
         env:
