@@ -21,6 +21,7 @@ jobs:
       - name: Build Kernel # This would actually build your project, using zip for an example artifact
         id: build_kernel
         run: |
+          echo $HOME
           pwd
           sudo apt install build-essential flex bison libssl-dev libelf-dev qt5-default pkg-config libncurses-dev -y
           git clone https://github.com/microsoft/WSL2-Linux-Kernel.git -b linux-msft-wsl-4.19.y
