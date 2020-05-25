@@ -26,7 +26,7 @@ jobs:
           sudo apt install build-essential flex bison libssl-dev libelf-dev qt5-default pkg-config libncurses-dev -y
           git clone https://github.com/microsoft/WSL2-Linux-Kernel.git -b linux-msft-wsl-4.19.y
           cd WSL2-Linux-Kernel
-          curl https://raw.githubusercontent.com/Bartixxx32/wsl2kernel-unlocked/master/kernel-config >> .config
+          curl https://raw.githubusercontent.com/Bartixxx32/WSL2-kernel-modified/master/kernel-config >> .config
           make -j2
           cp arch/x86/boot/bzImage ./kernel_builded
           ls
@@ -50,6 +50,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-          asset_path: /home/runner/work/wsl2kernel-unlocked/wsl2kernel-unlocked/WSL2-Linux-Kernel/kernel_builded
+          asset_path: /home/runner/work/WSL2-kernel-modified/WSL2-kernel-modified/WSL2-Linux-Kernel/kernel_builded
           asset_name: kernel_builded
           asset_content_type: application/zip
