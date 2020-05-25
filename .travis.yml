@@ -4,6 +4,7 @@ cache: ccache
 dist: bionic
 compiler:
   - c
+  - clang
   - gcc
 script:
   #- sudo apt install bc build-essential flex bison libssl-dev libelf-dev qt5-default pkg-config libncurses-dev -y
