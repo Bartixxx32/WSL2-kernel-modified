@@ -10,6 +10,14 @@ build:
   # install the necessary build tools when needed
   # before_script:
   #   - apt update && apt -y install make autoconf
+  before_script:
+  - apt-get update -y 
+  - apt-get install -y ccache
+  # CCache Config
+  - mkdir -p ccache
+  - export CCACHE_BASEDIR=${PWD}
+  - export CCACHE_DIR=${PWD}/ccache
+  
   script:
     - ls
     - pwd
@@ -18,7 +26,7 @@ build:
     - git clone --depth 1 https://github.com/microsoft/WSL2-Linux-Kernel.git -b linux-msft-wsl-4.19.y
     - cd WSL2-Linux-Kernel
     - curl https://raw.githubusercontent.com/Bartixxx32/WSL2-kernel-modified/master/kernel-config >> .config
-    - make -j$(nproc)
+    - make CC="ccache gcc" -j$(nproc)
     - cp arch/x86/boot/bzImage ./kernel_builded
     - ls
     - pwd
@@ -26,12 +34,7 @@ build:
     paths:
       - ./WSL2-Linux-Kernel/kernel_builded
       # depending on your build setup it's most likely a good idea to cache outputs to reduce the build time
-      # cache:
-      #   paths:
-      #     - "*.o"
+  cache:
+    paths:
+    - ccache/
 
-# run tests using the binary built before
-test:
-  stage: test
-  script:
-    - ./runmytests.sh
