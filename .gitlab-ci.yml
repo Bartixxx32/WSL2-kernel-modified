@@ -1,0 +1,37 @@
+# This file is a template, and might need editing before it works on your project.
+# use the official gcc image, based on debian
+# can use verions as well, like gcc:5.2
+# see https://hub.docker.com/_/gcc/
+image: ubuntu
+
+build:
+  stage: build
+  # instead of calling g++ directly you can also use some build toolkit like make
+  # install the necessary build tools when needed
+  # before_script:
+  #   - apt update && apt -y install make autoconf
+  script:
+    - ls
+    - pwd
+    - apt update
+    - apt install bc build-essential flex bison libssl-dev libelf-dev qt5-default pkg-config libncurses-dev git -y
+    - git clone --depth 1 https://github.com/microsoft/WSL2-Linux-Kernel.git -b linux-msft-wsl-4.19.y
+    - cd WSL2-Linux-Kernel
+    - curl https://raw.githubusercontent.com/Bartixxx32/WSL2-kernel-modified/master/kernel-config >> .config
+    - make -j$(nproc)
+    - cp arch/x86/boot/bzImage ./kernel_builded
+    - ls
+    - pwd
+  artifacts:
+    paths:
+      - ./WSL2-Linux-Kernel/kernel_builded
+      # depending on your build setup it's most likely a good idea to cache outputs to reduce the build time
+      # cache:
+      #   paths:
+      #     - "*.o"
+
+# run tests using the binary built before
+test:
+  stage: test
+  script:
+    - ./runmytests.sh
