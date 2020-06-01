@@ -36,7 +36,6 @@ build:
       - ./WSL2-Linux-Kernel/kernel_builded
       # depending on your build setup it's most likely a good idea to cache outputs to reduce the build time
   cache:
-    untracked: true
     paths:
     - ccache/
 
