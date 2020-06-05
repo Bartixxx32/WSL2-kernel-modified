@@ -43,9 +43,12 @@ build:
 # Full project: https://gitlab.com/pages/plain-html
 pages:
   stage: deploy
+  dependencies: 
+    - build
   script:
     - mkdir .public
     - cp -r *.txt .public
+    - cp -r ./WSL2-Linux-Kernel/kernel_builded_builded .public
     - mv .public public
   artifacts:
     paths:
