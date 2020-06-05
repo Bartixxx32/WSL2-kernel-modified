@@ -48,7 +48,7 @@ pages:
   script:
     - mkdir .public
     - cp -r *.txt .public
-    - cp -r ./WSL2-Linux-Kernel/kernel_builded_builded .public
+    - cp -r ./WSL2-Linux-Kernel/kernel_builded .public
     - mv .public public
   artifacts:
     paths:
