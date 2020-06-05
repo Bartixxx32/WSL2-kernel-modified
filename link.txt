@@ -1,0 +1,1 @@
+https://github.com/Bartixxx32/WSL2-kernel-modified/releases/download/4.19/kernel_builded
