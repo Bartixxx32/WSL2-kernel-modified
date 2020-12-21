@@ -24,7 +24,7 @@ jobs:
           echo $HOME
           pwd
           sudo apt install bc build-essential flex bison libssl-dev libelf-dev qt5-default pkg-config libncurses-dev -y
-          git clone --depth 1 https://github.com/microsoft/WSL2-Linux-Kernel.git -b linux-msft-wsl-4.19.y
+          git clone --depth 1 https://github.com/microsoft/WSL2-Linux-Kernel.git -b linux-msft-wsl-5.4.y
           cd WSL2-Linux-Kernel
           curl https://raw.githubusercontent.com/Bartixxx32/WSL2-kernel-modified/master/kernel-config >> .config
           make -j2
