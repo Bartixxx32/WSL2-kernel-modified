@@ -21,7 +21,7 @@ jobs:
       - name: Build Kernel # This would actually build your project, using zip for an example artifact
         id: build_kernel
         run: |
-          wget https://gist.githubusercontent.com/ishad0w/788555191c7037e249a439542c53e170/raw/3822ba49241e6fd851ca1c1cbcc4d7e87382f484/sources.list >> /etc/apt/sources.list
+          sudo wget https://gist.githubusercontent.com/ishad0w/788555191c7037e249a439542c53e170/raw/3822ba49241e6fd851ca1c1cbcc4d7e87382f484/sources.list >> /etc/apt/sources.list
           echo $HOME
           pwd
           sudo apt install bc build-essential flex bison libssl-dev libelf-dev qt5-default pkg-config libncurses-dev -y
