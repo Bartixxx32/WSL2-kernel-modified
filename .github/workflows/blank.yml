@@ -43,8 +43,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: "4.19"
-          release_name: "4.19-build2"
+          tag_name: "5,4"
+          release_name: "5.4-build1"
           draft: false
           prerelease: false
       - name: Upload Release Asset
