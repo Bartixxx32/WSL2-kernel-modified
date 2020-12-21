@@ -26,6 +26,7 @@ jobs:
           sudo mv sources.list /etc/apt/sources.list
           echo $HOME
           pwd
+          sudo apt update -y
           sudo apt install bc build-essential flex bison libssl-dev libelf-dev qt5-default pkg-config libncurses-dev -y
           git clone --depth 1 https://github.com/microsoft/WSL2-Linux-Kernel.git -b linux-msft-wsl-5.4.y
           cd WSL2-Linux-Kernel
